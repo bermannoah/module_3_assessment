@@ -18,8 +18,9 @@ class Api::V1::ItemsController < Api::V1::ApiController
   def create
     item = Item.create(name: params["name"], description: params["description"], image_url: params["image_url"])
     if item.save
-      
       render json: item, status: :created
+    else
+      render status: :bad_request
     end
   end
   
