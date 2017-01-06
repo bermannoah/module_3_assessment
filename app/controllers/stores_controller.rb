@@ -5,6 +5,6 @@ class StoresController < ApplicationController
   
   def index
     @zipcode = params["zipcode"]
-    @all_stores = StoreService.send_store_request(@zipcode)
+    @all_stores = Store.store_process(@zipcode)
   end  
 end
