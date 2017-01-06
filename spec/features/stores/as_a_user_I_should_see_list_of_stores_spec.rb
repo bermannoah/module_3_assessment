@@ -5,13 +5,13 @@ describe "list of Best Buy stores" do
     scenario "see a search box at root" do
       visit "/"
       
-      expect(page).to have_css("#_zipcode")
+      expect(page).to have_css("#_search_zipcode")
     end
 
     scenario "enter text in the search box and go to the right path" do
       visit "/"
       
-      fill_in "_zipcode", with: 80202
+      fill_in "_search_zipcode", with: 80202
       click_on "Search for nearest store"
       
       expect(current_path).to include("/search")
