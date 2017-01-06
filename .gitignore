@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore .DS_Store files if they show up
+.DS_Store
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -18,3 +21,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore simplecov coverage
+coverage
+
+# Ignore vcr cassettes
+/spec/cassettes
