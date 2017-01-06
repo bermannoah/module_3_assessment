@@ -15,20 +15,22 @@ describe 'items endpoint' do
 
     scenario "I receive the right item" do
       store = Fabricate.times(10, :item)
-      
-      get "/api/v1/items/1"
+      item_id = store.first.id
+
+      get "/api/v1/items/#{item_id}"
       
       item = JSON.parse(response.body)
 
       expect(response).to be_success
       expect(item["name"]).to eq(store.first.name)
-      expect(item.count).to eq(1)
+      expect(item["id"]).to eq(item_id)
     end
 
     scenario "I do NOT see the created at and updated at times" do
       store = Fabricate.times(10, :item)
-      
-      get "/api/v1/items/1"
+      item_id = store.first.id
+
+      get "/api/v1/items/#{item_id}"
       
       item = JSON.parse(response.body)
 
