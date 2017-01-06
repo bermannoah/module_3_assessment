@@ -15,4 +15,12 @@ class Api::V1::ItemsController < Api::V1::ApiController
     item.delete
   end
   
+  def create
+    item = Item.create(name: params["name"], description: params["description"], image_url: params["image_url"])
+    if item.save
+      
+      render json: item, status: :created
+    end
+  end
+  
 end

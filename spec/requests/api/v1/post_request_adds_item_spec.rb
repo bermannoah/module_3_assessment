@@ -4,10 +4,10 @@ describe 'items endpoint' do
   context "POST /api/v1/items" do
     scenario "I receive a 201 JSON response" do
       store = Fabricate.times(10, :item)
-      new_item = { name: "Super Great", description: "Seriously, this is fantastic", image_url: "https://unsplash.com/?photo=9gnXVOgo_-I"} 
+      new_item = { name: "Super Great", description: "Seriously, this is fantastic", image_url: "http://www.example.com/great_image.jpg"} 
       expect(Item.count).to be(10)
         
-      post "/api/v1/items", new_item.to_json
+      post "/api/v1/items", params: new_item.to_json, headers: { 'CONTENT_TYPE' => 'application/json'}
       
       result = JSON.parse(response.body)
 
