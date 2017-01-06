@@ -16,13 +16,19 @@ describe "list of Best Buy stores" do
       
       expect(current_path).to include("/search")
     end
+
+    scenario "after searching I should see stores within 25 miles of 80202" do
+      visit "/"
+      
+      fill_in "_search_zipcode", with: 80202
+      click_on "Search for nearest store"
+      
+      expect(current_path).to include("/search")
+      expect(page).to have_content("Stores within 25 miles of 80202")
+    end
   end
 end
 
-  # As a user
-  # When I visit "/"
-  # And I fill in a search box with "80202" and click "search"
-  # Then my current path should be "/search" (ignoring params)
   # And I should see stores within 25 miles of 80202
   # And I should see a message that says "16 Total Stores"
   # And I should see exactly 15 results
