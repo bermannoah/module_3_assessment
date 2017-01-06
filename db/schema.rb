@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170106185351) do
     t.string   "distance"
     t.string   "phone_number"
     t.string   "store_type"
+    t.integer  "search_zip"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
