@@ -21,6 +21,7 @@ describe 'items endpoint' do
       expect(response).to be_success
       expect(items[0]["name"]).to eq(store.first.name)
       expect(items[9]["name"]).to eq(store.last.name)
+      expect(items[9]["image_url"]).to eq(store.last.image_url)
     end
 
     scenario "I do NOT see the created at and updated at times" do
@@ -30,8 +31,10 @@ describe 'items endpoint' do
       items = JSON.parse(response.body)
 
       expect(response).to be_success
-      expect(items[0]["name"]).to eq(store.first.name)
-      expect(items[9]["name"]).to eq(store.last.name)
+      expect(items[0]).to_not include("created_at")
+      expect(items[9]).to_not include("created_at")
+      expect(items[0]).to_not include("updated_at")
+      expect(items[9]).to_not include("updated_at")
     end
   end
 end
