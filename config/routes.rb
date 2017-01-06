@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :stores, only: [:index, :show]
+  get "/search", to: 'stores#index'
   resources :items,  only: [:index, :show]
   resources :orders, only: [:index, :show]
   resources :users,  only: [:index, :show]

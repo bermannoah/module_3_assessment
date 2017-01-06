@@ -11,7 +11,7 @@ describe "list of Best Buy stores" do
     scenario "enter text in the search box and go to the right path" do
       visit "/"
       
-      fill_in "zipcode-search", with: 80202
+      fill_in "_search_zipcode", with: 80202
       click_on "Search for nearest store"
       
       expect(current_path).to include("/search")
