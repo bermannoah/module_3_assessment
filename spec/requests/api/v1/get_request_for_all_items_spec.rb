@@ -3,11 +3,13 @@ require 'rails_helper'
 
 describe 'items endpoint' do
   context "GET /api/v1/items" do
-    scenario "I receive a 200 JSON response containing all items", :vcr do
-      get '/api/v1/items' 
+    scenario "I receive a 200 JSON response" do
+      get "/api/v1/items"
       
-      result = JSON.parse(response.body)
+      items = JSON.parse(response.body)
       
+      expect(response).to be_success
+      binding.pry
     end
   end
 end
