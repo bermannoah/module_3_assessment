@@ -22,7 +22,6 @@ class StoresController < ApplicationController
                                           :format => "json", 
                                           :show => "storeId,storeType,longName,city,distance,phone,storeType,region",
                                           :apiKey => ENV['BEST_BUY_API_KEY']}
-    binding.pry
     JSON.parse(response.body)
   end
   
