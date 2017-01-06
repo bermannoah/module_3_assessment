@@ -7,9 +7,31 @@ describe 'items endpoint' do
       get "/api/v1/items"
       
       items = JSON.parse(response.body)
-      
-      expect(response).to be_success
 
+      expect(response).to be_success
+      expect(items).to be_an(Array)
+    end
+
+    scenario "I receive all items" do
+      store = Fabricate.times(10, :item)
+      get "/api/v1/items"
+      
+      items = JSON.parse(response.body)
+
+      expect(response).to be_success
+      expect(items[0]["name"]).to eq(store.first.name)
+      expect(items[9]["name"]).to eq(store.last.name)
+    end
+
+    scenario "I do NOT see the created at and updated at times" do
+      store = Fabricate.times(10, :item)
+      get "/api/v1/items"
+      
+      items = JSON.parse(response.body)
+
+      expect(response).to be_success
+      expect(items[0]["name"]).to eq(store.first.name)
+      expect(items[9]["name"]).to eq(store.last.name)
     end
   end
 end
