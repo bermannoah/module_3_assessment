@@ -8,7 +8,7 @@ describe "list of Best Buy stores" do
       expect(page).to have_css("#_search_zipcode")
     end
 
-    scenario "enter text in the search box and go to the right path" do
+    scenario "enter text in the search box and go to the right path", :vcr do
       visit "/"
       
       fill_in "_search_zipcode", with: 80202
@@ -17,7 +17,7 @@ describe "list of Best Buy stores" do
       expect(current_path).to include("/search")
     end
 
-    scenario "after searching I should see stores within 25 miles of 80202" do
+    scenario "after searching I should see stores within 25 miles of 80202", :vcr do
       visit "/"
       
       fill_in "_search_zipcode", with: 80202
