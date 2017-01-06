@@ -4,7 +4,8 @@ class StoresController < ApplicationController
   end
   
   def index
-    send_store_request(params["zipcode"])
+    @zipcode = params["zipcode"]
+    @all_stores = send_store_request(@zipcode)
   end
   
   
