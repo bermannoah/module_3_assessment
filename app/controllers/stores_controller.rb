@@ -4,7 +4,8 @@ class StoresController < ApplicationController
   end
   
   def index
-    @zipcode = params["zipcode"]
-    @all_stores = Store.store_process(@zipcode)
+    zipcode = params["zipcode"]
+    Store.store_process(zipcode)
+    @all_stores = Store.where(search_zip: zipcode)
   end  
 end
