@@ -10,4 +10,9 @@ class Api::V1::ItemsController < Api::V1::ApiController
     render json: item
   end
   
+  def delete
+    item = Item.find(params[:id])
+    item.delete
+  end
+  
 end

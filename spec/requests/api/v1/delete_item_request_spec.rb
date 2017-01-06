@@ -6,10 +6,8 @@ describe 'items endpoint' do
       store = Fabricate.times(10, :item)
     
       delete "/api/v1/items/1"
-      
-      result = JSON.parse(response.body)
 
-      expect(response).to eq(204)
+      expect(response.status).to eq(204)
     end
 
     xscenario "I receive the right item" do
