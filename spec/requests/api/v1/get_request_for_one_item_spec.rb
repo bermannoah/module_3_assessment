@@ -4,6 +4,7 @@ describe 'items endpoint' do
   context "GET /api/v1/items" do
     scenario "I receive a 200 JSON response" do
       store = Fabricate.times(10, :item)
+    
       get "/api/v1/items/1"
       
       item = JSON.parse(response.body)
@@ -14,6 +15,7 @@ describe 'items endpoint' do
 
     scenario "I receive the right item" do
       store = Fabricate.times(10, :item)
+      
       get "/api/v1/items/1"
       
       item = JSON.parse(response.body)
@@ -25,6 +27,7 @@ describe 'items endpoint' do
 
     scenario "I do NOT see the created at and updated at times" do
       store = Fabricate.times(10, :item)
+      
       get "/api/v1/items/1"
       
       item = JSON.parse(response.body)
