@@ -6,6 +6,7 @@ class StoresController < ApplicationController
   def index
     @zipcode = params["zipcode"]
     @all_stores = send_store_request(@zipcode)
+    binding.pry
   end
   
   
@@ -20,6 +21,7 @@ class StoresController < ApplicationController
   
   def send_store_request(zipcode)
     response = conn.get "/v1/stores", {   :zipcode => "#{zipcode}",
+                                          :area => 25,
                                           :format => "json", 
                                           :show => "storeId,storeType,longName,city,distance,phone,storeType,region",
                                           :apiKey => ENV['BEST_BUY_API_KEY']}
