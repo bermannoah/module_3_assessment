@@ -3,7 +3,9 @@ require 'rails_helper'
 describe "list of Best Buy stores" do
   context "as a user I should see" do
     scenario "a search box at root" do
+      visit "/"
       
+      expect(page).to have_content("Search for nearest store")
     end
   end
 end
