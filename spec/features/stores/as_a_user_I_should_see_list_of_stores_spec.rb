@@ -44,7 +44,7 @@ describe "list of Best Buy stores" do
       click_on "Search for nearest store"
       
       expect(current_path).to include("/search")
-      expect(Store.count).to eq(10)
+      expect(page).to have_selector('#store', count: 10)
     end
     
     scenario "after searching I should exactly the store data", :vcr do
