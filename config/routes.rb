@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root 'items#index'
 
+  get "/search", to: 'stores#index'
+  resources :items,  only: [:index, :show]
+  resources :orders, only: [:index, :show]
+  resources :users,  only: [:index, :show]
+
   namespace :api do
     namespace :v1 do
       get '/items', to: 'items#index'
@@ -10,8 +15,4 @@ Rails.application.routes.draw do
     end
   end
   
-  post "/search", to: 'stores#search'
-  resources :items,  only: [:index, :show]
-  resources :orders, only: [:index, :show]
-  resources :users,  only: [:index, :show]
 end

@@ -1,6 +1,8 @@
 class StoresController < ApplicationController
-  def search
+  
+  def index
     @zipcode = params["zipcode"]
     @all_stores = Store.store_process(@zipcode)
   end
+
 end
