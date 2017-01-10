@@ -5,13 +5,13 @@ describe "list of Best Buy stores" do
     scenario "see a search box at root" do
       visit "/"
       
-      expect(page).to have_css("#_search_zipcode")
+      expect(page).to have_css("#zipcode")
     end
 
     scenario "enter text in the search box and go to the right path", :vcr do
       visit "/"
       
-      fill_in "_search_zipcode", with: 80202
+      fill_in "zipcode", with: 80202
       click_on "Search for nearest store"
       
       expect(current_path).to include("/search")
@@ -20,7 +20,7 @@ describe "list of Best Buy stores" do
     scenario "after searching I should see stores within 25 miles of 80202", :vcr do
       visit "/"
       
-      fill_in "_search_zipcode", with: 80202
+      fill_in "zipcode", with: 80202
       click_on "Search for nearest store"
       
       expect(current_path).to include("/search")
@@ -30,7 +30,7 @@ describe "list of Best Buy stores" do
     scenario "after searching I should see stores within 25 miles of 80202", :vcr do
       visit "/"
       
-      fill_in "_search_zipcode", with: 80202
+      fill_in "zipcode", with: 80202
       click_on "Search for nearest store"
       
       expect(current_path).to include("/search")
@@ -40,7 +40,7 @@ describe "list of Best Buy stores" do
     scenario "after searching I should see exactly the right number of stores", :vcr do
       visit "/"
       
-      fill_in "_search_zipcode", with: 80202
+      fill_in "zipcode", with: 80202
       click_on "Search for nearest store"
       
       expect(current_path).to include("/search")
@@ -50,7 +50,7 @@ describe "list of Best Buy stores" do
     scenario "after searching I should exactly the store data", :vcr do
       visit "/"
       
-      fill_in "_search_zipcode", with: 80202
+      fill_in "zipcode", with: 80202
       click_on "Search for nearest store"
       
       expect(current_path).to include("/search")

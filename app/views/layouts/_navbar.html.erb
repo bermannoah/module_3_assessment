@@ -22,9 +22,9 @@
     </ul>
     <form class="navbar-form navbar-left">
       <div class="form-group">
-        <%= form_for search_path, class: "nabvar-form navbar-left" do |f| %>
-          <%= f.text_field :zipcode, class: "form-control" %>
-          <%= f.submit "Search for nearest store", class: "btn btn-default", id: "zipcode-finder" %>
+        <%= form_tag(search_path, class: 'nabvar-form navbar-left') do %>
+          <%= text_field_tag('zipcode', nil, class: 'form-control') %>
+          <%= submit_tag("Search for nearest store", class: "btn btn-default", id: "zipcode-finder") %>
         <% end %>
       </div>
     </form>

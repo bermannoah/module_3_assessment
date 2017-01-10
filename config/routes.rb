@@ -10,8 +10,7 @@ Rails.application.routes.draw do
     end
   end
   
-  post "/", to: 'stores#search'
-  get "/search", to: 'stores#index'
+  post "/search", to: 'stores#search'
   resources :items,  only: [:index, :show]
   resources :orders, only: [:index, :show]
   resources :users,  only: [:index, :show]
